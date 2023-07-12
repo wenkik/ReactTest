@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hello React!</title>
+<script type="text/javascript" src="../build/react.development.js"></script>
+<script type="text/javascript" src="../build/react-dom.development.js"></script>
+<script type="text/javascript" src="../build/babel.min.js"></script>
+</head>
+<body>
+ 
+<div id="test"></div> 
+<!-- 告诉babel.js解析jsx的代码 -->
+<script type="text/babel">
+ // 1. 创建虚拟DOM元素对象
+ function HelloMessage(props) {
+    return <h2>Hello {props.name}!</h2>;
+}
+const element = <HelloMessage name="KIKI"/>;
+    // 2. 将虚拟DOM渲染到真实到DOM容器中
+
+ReactDOM.render(
+    element, 
+    document.getElementById('test')
+    )
+</script>
+<div id="demo"></div> 
+<script type="text/babel">
+ function Name(props) {
+    return <h1>网站名称：{props.name}</h1>;
+}
+function Url(props) {
+    return <h1>网站地址：{props.url}</h1>;
+}
+function Nickname(props) {
+    return <h1>网站小名：{props.nickname}</h1>;
+}
+function App() {
+    return (
+    <div>
+        <Name name="Bilibili" />
+        <Url url={<a href="https://www.bilibili.com/?spm_id_from=333.788.0.0>">https://www.bilibili.com/?spm_id_from=333.788.0.0</a>}/>
+        <Nickname nickname="Bili" />
+    </div>
+    );
+}
+ 
+ReactDOM.render(
+     <App />,
+    document.getElementById('demo')
+);
+</script>
+</body>
+</html>
